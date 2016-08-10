@@ -10,6 +10,9 @@
 install_version="3.1+"
 upstream_version=31
 
+stable_version="3.1.1"
+
+
 # Download and install WordPress
 
 install_dir=${OPENSHIFT_BUILD_DEPENDENCIES_DIR}${install_version}
@@ -28,7 +31,7 @@ mkdir -p $install_dir
 #https://download.moodle.org/download.php/stable31/moodle-latest-31.tgz
 
 pushd ${install_dir} >/dev/null
-curl -o moodle-latest-${upstream_version}.tgz -kLs https://download.moodle.org/download.php/direct/stable${upstream_version}/moodle-latest-${upstream_version}.tgz
+curl -o moodle-latest-${upstream_version}.tgz -kLs https://download.moodle.org/download.php/direct/stable${upstream_version}/moodle-latest-${stable_version}.tgz
 
 # Install Moodle
 #
