@@ -28,15 +28,21 @@ current_version_dir=${OPENSHIFT_DATA_DIR}current
 
 mkdir -p $install_dir
 
+
+#moodle-latest-31.tar
 #https://download.moodle.org/download.php/stable31/moodle-latest-31.tgz
+#moodle-3.1.1.tar
+#https://download.moodle.org/download.php/stable31/moodle-3.1.1.tgz
 
 pushd ${install_dir} >/dev/null
-curl -o moodle-latest-${upstream_version}.tgz -kLs https://download.moodle.org/download.php/direct/stable${upstream_version}/moodle-latest-${stable_version}.tgz
-
+#curl -o moodle-latest-${upstream_version}.tgz -kLs https://download.moodle.org/download.php/direct/stable${upstream_version}/moodle-latest-${upstream_version}.tgz
+curl -o moodle-${stable_version}.tgz -kLs https://download.moodle.org/download.php/direct/stable${upstream_version}/moodle-${stable_version}.tgz
 # Install Moodle
 #
-tar --strip-components=1 -xzf moodle-latest-${upstream_version}.tgz
-rm -rf moodle-latest-${upstream_version}.tgz
+#tar --strip-components=1 -xzf moodle-latest-${upstream_version}.tgz
+tar --strip-components=1 -xzf moodle-${stable_version}.tgz
+#rm -rf moodle-latest-${upstream_version}.tgz
+rm -rf moodle-${stable_version}.tgz
 echo $install_version > ${OPENSHIFT_BUILD_DEPENDENCIES_DIR}.current_version
 
 popd >/dev/null
